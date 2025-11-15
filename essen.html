@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forellenknusperli Event - Waldhütte Männedorf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .fish-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f9ff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 fish-pattern min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-6">
+                <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">🐟 Forellenknusperli</h1>
+            <p class="text-xl text-gray-400">Leckere Knusperli aus Eigenfang <p>von Hitschforellen</p></p>
+        </div>
+
+        <!-- Main Event Card -->
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-8">
+            <!-- Event Details -->
+            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-8">
+                <div class="text-center">
+                    <div class="text-4xl font-black mb-2">CHF 40.- pro Person</div>
+                    <div class="text-2xl font-bold mb-4">Samstag, 7. Februar 2026</div>
+                    <div class="text-xl mb-2">🕕 18:00 Uhr</div>
+                    <div class="text-lg">📍 Waldhütte Männedorf</div>
+                </div>
+            </div>
+
+            <!-- Menu Information -->
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🍽️ Was erwartet Sie</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-blue-50 rounded-2xl p-6">
+                        <h3 class="font-bold text-lg mb-3 text-blue-800">Hauptgang</h3>
+                        <p class="text-gray-700">Leckeres Knusperli von der Forelle mit Remoulade Sauce und Kartoffeln</p>
+                    </div>
+                    <div class="bg-green-50 rounded-2xl p-6">
+                        <h3 class="font-bold text-lg mb-3 text-green-800">Beilagen</h3>
+                        <p class="text-gray-700">Frischer Salat und köstliches Dessert</p>
+                    </div>
+                </div>
+                <div class="bg-amber-50 rounded-2xl p-4 text-center">
+                    <p class="text-amber-800 font-medium">🥤 Getränke zum Selbstkostenpreis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📝 Anmeldung</h2>
+            
+            <form id="registrationForm" class="space-y-6">
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-3">Ihr Name</label>
+                    <input type="text" id="name" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg">
+                </div>
+                
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-3">Anzahl Personen</label>
+                    <select id="persons" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg">
+                        <option value="">Bitte wählen...</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 Personen</option>
+                        <option value="3">3 Personen</option>
+                        <option value="4">4 Personen</option>
+                        <option value="5">5 Personen</option>
+                        <option value="6">6+ Personen</option>
+                    </select>
+                </div>
+
+                <!-- Summary -->
+                <div id="summary" class="bg-gray-50 rounded-xl p-6 hidden">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">📋 Zusammenfassung</h3>
+                    <div id="summaryContent" class="space-y-2 text-gray-700"></div>
+                    <div id="totalCost" class="text-2xl font-bold text-blue-600 mt-4"></div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-xl text-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    📱 Anmeldung per WhatsApp abschließen
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-red-600 font-bold text-lg">⏰ Anmeldung bis 15. Dezember 2025</p>
+            </div>
+        </div>
+
+        <!-- Location & Calendar -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <!-- Location -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📍 Standort</h3>
+                <p class="text-gray-700 mb-4">Brähenrainweg<br>8708 Männedorf</p>
+                <a href="https://maps.google.com/?q=Brähenrainweg,8708+Männedorf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                    🗺️ Google Maps anzeigen
+                </a>
+            </div>
+
+            <!-- Calendar -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📅 Kalender</h3>
+                <p class="text-gray-700 mb-4">Termin in Ihren Kalender eintragen</p>
+                <button onclick="addToCalendar()" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                    📅 Zu Google Kalender hinzufügen
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer Message -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+            <p class="text-xl text-gray-700 font-medium">😊 Ich freue mich über jede Anmeldung!</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const nameInput = document.getElementById('name');
+        const personsSelect = document.getElementById('persons');
+        const summary = document.getElementById('summary');
+        const summaryContent = document.getElementById('summaryContent');
+        const totalCost = document.getElementById('totalCost');
+
+        function updateSummary() {
+            const name = nameInput.value.trim();
+            const persons = personsSelect.value;
+            
+            if (name && persons) {
+                const cost = persons === '6' ? 240 : parseInt(persons) * 40;
+                const personText = persons === '6' ? '6+ Personen' : `${persons} Person${persons > 1 ? 'en' : ''}`;
+                
+                summaryContent.innerHTML = `
+                    <div><strong>Name:</strong> ${name}</div>
+                    <div><strong>Anzahl:</strong> ${personText}</div>
+                    <div><strong>Event:</strong> Forellenknusperli</div>
+                    <div><strong>Datum:</strong> Samstag, 7. Februar 2026, 18:00 Uhr</div>
+                    <div><strong>Ort:</strong> Waldhütte Männedorf</div>
+                `;
+                
+                totalCost.textContent = `Gesamtkosten: CHF ${cost}.-`;
+                summary.classList.remove('hidden');
+            } else {
+                summary.classList.add('hidden');
+            }
+        }
+
+        nameInput.addEventListener('input', updateSummary);
+        personsSelect.addEventListener('change', updateSummary);
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = nameInput.value.trim();
+            const persons = personsSelect.value;
+            
+            if (!name || !persons) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            const cost = persons === '6' ? 240 : parseInt(persons) * 40;
+            const personText = persons === '6' ? '6+ Personen' : `${persons} Person${persons > 1 ? 'en' : ''}`;
+            
+            const message = `Hallo! Ich möchte mich für das Forellenknusperli-Event anmelden:
+
+👤 Name: ${name}
+👥 Anzahl Personen: ${personText}
+💰 Gesamtkosten: CHF ${cost}.-
+
+📅 Event: Forellenknusperli
+🗓️ Datum: Samstag, 7. Februar 2026, 18:00 Uhr
+📍 Ort: Waldhütte Männedorf
+
+Vielen Dank!`;
+            
+            const whatsappUrl = `https://wa.me/41795466807?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        function addToCalendar() {
+            const startDate = '20260207T180000';
+            const endDate = '20260207T220000';
+            const title = 'Forellenknusperli - Waldhütte Männedorf';
+            const details = 'Leckeres Knusperli von der Forelle mit Remoulade Sauce und Kartoffeln, Salat und Dessert. CHF 40.- pro Person.';
+            const location = 'Waldhütte Männedorf, Brähenrainweg, 8708 Männedorf';
+            
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+            
+            window.open(googleCalendarUrl, '_blank');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98484b12f1164f9a',t:'MTc1ODc3OTk0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
