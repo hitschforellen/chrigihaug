@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alles muss weg - Forellenverkauf Hitsch Catering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .fish-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0f2fe' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-cyan-100 fish-pattern min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border-4 border-red-500">
+            <div class="text-center">
+                <div class="text-6xl mb-4">🐟</div>
+                <h1 class="text-4xl font-bold text-red-600 mb-2">ALLES MUSS WEG!</h1>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Forellenverkauf vom letzten Fang</h2>
+                <div class="bg-yellow-400 text-black font-bold text-xl py-3 px-6 rounded-lg inline-block transform rotate-2 shadow-lg">
+                    🎯 AKTION: Ganze Forelle nur CHF 6.-
+                </div>
+            </div>
+        </div>
+
+        <!-- Bestellformular -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">📝 Bestellung aufgeben</h3>
+            
+            <form id="orderForm" class="space-y-6">
+                <!-- Anzahl -->
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-2">Anzahl Forellen</label>
+                    <input type="number" id="quantity" min="1" value="1" 
+                           class="w-full p-4 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none">
+                </div>
+
+                <!-- Name -->
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-2">Name</label>
+                    <input type="text" id="name" required
+                           class="w-full p-4 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none"
+                           placeholder="Ihr vollständiger Name">
+                </div>
+
+                <!-- Lieferadresse -->
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-2">Lieferadresse</label>
+                    <textarea id="address" required rows="3"
+                              class="w-full p-4 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none"
+                              placeholder="Strasse, Hausnummer&#10;PLZ Ort"></textarea>
+                </div>
+
+                <!-- Bezahlung -->
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-2">Bezahlung</label>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="payment" value="twint" id="twint" class="mr-3 scale-125">
+                            <span class="text-lg">💳 Twint</span>
+                        </label>
+                        <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="payment" value="delivery" id="delivery" class="mr-3 scale-125" checked>
+                            <span class="text-lg">💰 Bei Lieferung</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Lieferdatum -->
+                <div>
+                    <label class="block text-lg font-semibold text-gray-700 mb-2">Gewünschtes Lieferdatum</label>
+                    <input type="date" id="deliveryDate" required
+                           class="w-full p-4 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none">
+                </div>
+
+                <!-- Twint Nummer (conditional) -->
+                <div id="twintSection" class="hidden">
+                    <div class="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
+                        <p class="text-lg font-semibold text-blue-800 mb-2">📱 Twint Nummer für Zahlung:</p>
+                        <p class="text-xl font-bold text-blue-900">+41 79 546 68 07</p>
+                        <p class="text-sm text-blue-700 mt-2">Bitte überweisen Sie den Betrag nach Bestätigung Ihrer Bestellung.</p>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-4 px-6 rounded-lg transition-colors duration-200 shadow-lg">
+                    📱 Bestellung per WhatsApp senden
+                </button>
+            </form>
+        </div>
+
+        <!-- Info Box -->
+        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-6 shadow-lg">
+            <h4 class="text-xl font-bold text-amber-800 mb-3">ℹ️ Wichtige Information</h4>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Für Catering-Aufträge benötige ich viele filetierte Forellen. Aus diesem Grund muss 
+                mein Bestand an ganzen Forellen vom letzten Fang verkauft werden.
+            </p>
+            <div class="bg-white p-4 rounded-lg border border-amber-200">
+                <p class="font-semibold text-gray-800">🍽️ Hitsch Catering Wermatswil</p>
+                <p class="text-gray-700">📞 +41 79 546 68 07</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('deliveryDate').min = today;
+        document.getElementById('deliveryDate').value = today;
+
+        // Show/hide Twint section
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const twintSection = document.getElementById('twintSection');
+                if (this.value === 'twint') {
+                    twintSection.classList.remove('hidden');
+                } else {
+                    twintSection.classList.add('hidden');
+                }
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const quantity = document.getElementById('quantity').value;
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+            const deliveryDate = document.getElementById('deliveryDate').value;
+            
+            const totalPrice = quantity * 6;
+            const paymentText = payment === 'twint' ? 'Twint' : 'Bei Lieferung';
+            
+            const message = `🐟 FORELLEN BESTELLUNG
+
+👤 Name: ${name}
+📦 Anzahl: ${quantity} Forelle(n)
+💰 Gesamtpreis: CHF ${totalPrice}.-
+💳 Bezahlung: ${paymentText}
+📅 Lieferdatum: ${deliveryDate}
+
+📍 Lieferadresse:
+${address}
+
+Vielen Dank für Ihre Bestellung!`;
+
+            const whatsappUrl = `https://wa.me/41795466807?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        });
+
+        // Update total price display
+        document.getElementById('quantity').addEventListener('input', function() {
+            const quantity = this.value;
+            const totalPrice = quantity * 6;
+            
+            // Update button text with total
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = `📱 Bestellung senden (Total: CHF ${totalPrice}.-)`;
+        });
+
+        // Initialize total price display
+        document.getElementById('quantity').dispatchEvent(new Event('input'));
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98625dde103bbe84',t:'MTc1OTA1MzM0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
